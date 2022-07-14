@@ -3,6 +3,7 @@ package week3;
 public class BankAccount {
 	private String password;
 	private double balance;
+	private Date date;
 	public static final double OVERDRAWN_PENALTY = 20.00;
 
 	//constructors
@@ -10,7 +11,7 @@ public class BankAccount {
 	 * Constructs bank account with default values. */
 	public BankAccount()
 	{ 
-		password = "hello";
+		
 	}
 
 
@@ -27,6 +28,10 @@ public class BankAccount {
 	public double getBalance()
 	{ 
 		return balance;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 
 
