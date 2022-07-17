@@ -4,6 +4,7 @@ public class BankAccount {
 	private String password;
 	private double balance;
 	private Date date;
+	
 	public static final double OVERDRAWN_PENALTY = 20.00;
 
 	//constructors
@@ -32,6 +33,10 @@ public class BankAccount {
 	
 	public String getPassword() {
 		return password;
+	}
+	
+	public Date getDate() {
+		return date;
 	}
 
 

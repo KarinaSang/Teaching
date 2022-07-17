@@ -43,10 +43,18 @@ public class ChooseBestAccount {
 	public static void main(String[] args) {
 		BankAccount briansFund = new BankAccount("BrianL", 10000);
 		BankAccount paulsFund = new BankAccount("PaulM", 90000);
-		BankAccount betterFund = null;
+		BankAccount betterFund = chooseBestAccount3(briansFund, paulsFund);;
 		
-		chooseBestAccount1(betterFund, briansFund, paulsFund);
-		System.out.println(betterFund);
+		System.out.println(betterFund.getPassword());
+		
+		paulsFund.deposit("PaulM", 10);
+		
+		System.out.println(betterFund.getBalance());
+		
+		betterFund.deposit("PaulM", 10);
+		
+		System.out.println(paulsFund.getBalance());
+		
 
 	}
 
