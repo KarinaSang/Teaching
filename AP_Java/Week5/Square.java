@@ -17,6 +17,7 @@ public class Square extends Shape {
 	
 	
 	public double area() { 
+		//System.out.println("Square area is called");
 		return side * side; 
 	}
 }

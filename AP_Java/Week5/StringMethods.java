@@ -3,13 +3,15 @@ package week5;
 public class StringMethods {
 
 	public static void main(String[] args) {
-//		"unhappy".substring(2);
-//		"cold".substring(4);
-//		"cold".substring(5);
-//		"strawberry".substring(5,7);
-//		"crayfish".substring(4,8);
-//		"crayfish".substring(4,9);
-//		"crayfish".substring(5,4);
+//		Date d1 = new Date ("Jan", 12, 2020);
+//		System.out.println(d1);
+//		System.out.println("unhappy".substring(2));
+//		System.out.println("cold".substring(4));
+//		System.out.println("cold".substring(5));
+//		System.out.println("strawberry".substring(5,7));
+//		System.out.println("crayfish".substring(4,8));
+//		System.out.println("crayfish".substring(4,9));
+//		System.out.println("crayfish".substring(5,4));
 		
 		
 		String s = "funnyfarm";

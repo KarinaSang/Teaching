@@ -8,8 +8,8 @@ public class StringComparison {
 		String s3 = "Cats";
 		
 		System.out.println(s1.equals(s2));
-		System.out.println(s1.compareTo(s2) < 0);
-		System.out.println(s2.compareTo(s3) < 0);
+		System.out.println(s1.compareTo(s2));
+		System.out.println(s2.compareTo(s3));
 
 	}
 

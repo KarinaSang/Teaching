@@ -33,14 +33,15 @@ public class Date {
 		return year + " " + month + " " + day;
 	}
 	
-//	public boolean equals(Date other) {
-//		if (this.getDay() == other.getDay() 
-//				&& this.getYear() == other.getYear()
-//				&& this.getMonth().equals(other.getMonth())) {
-//			return true;
-//		}
-//		
-//		return false;
-//	}
+	
+	public boolean equals(Date other) {
+		if (this.getDay() == other.getDay() 
+				&& this.getYear() == other.getYear()
+				&& this.getMonth().equals(other.getMonth())) {
+			return true;
+		}
+		
+		return false;
+	}
 
 }
