@@ -89,7 +89,7 @@ public class RPGGame extends Application {
             }
 
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-            fightScene.drawPlayer(gc);
+            fightScene.render(gc, output);
         });
 
 
