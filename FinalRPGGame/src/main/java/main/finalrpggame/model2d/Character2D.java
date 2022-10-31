@@ -1,19 +1,22 @@
 package main.finalrpggame.model2d;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
-import java.util.ArrayList;
+import main.finalrpggame.Character;
+import main.finalrpggame.Direction;
 
 public class Character2D extends GameObject2D {
-    Image characterImage;
-    double velocity;
+    private Image characterImage;
+    private double velocity;
+    private Direction dir;
 
-    public Character2D(Image characterImage, String name, double width, double height, double x, double y) {
+    private Character info;
+
+    public Character2D(Image characterImage, String name, double width, double height, double x, double y, Character info) {
         super(name, width, height, x, y);
         this.characterImage = characterImage;
         this.velocity = 1.0;
+        dir = Direction.getNewDirection();
+        this.info = info;
     }
 
     public Image getImage(){
@@ -30,6 +33,39 @@ public class Character2D extends GameObject2D {
     @Override
     public String toString() {
         return this.getName() + " " + this.getX() + ", " + this.getY();
+    }
+
+    public Direction getDirection() {
+        return dir;
+    }
+
+    public void setDirection(Direction direction) {
+        this.dir = direction;
+    }
+
+    public void moveLeft() {
+        this.setX(this.getX() - velocity);
+    }
+
+
+    public void moveRight() {
+        this.setX(this.getX() + velocity);
+    }
+
+    public void moveUp() {
+        this.setY(this.getY() - velocity);
+    }
+
+    public void moveDown() {
+        this.setY(this.getY() + velocity);
+    }
+
+    public Character getInfo() {
+        return info;
+    }
+
+    public void setInfo(Character info) {
+        this.info = info;
     }
 
 }

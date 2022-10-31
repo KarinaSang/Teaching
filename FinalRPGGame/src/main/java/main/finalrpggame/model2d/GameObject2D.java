@@ -5,14 +5,6 @@ import javafx.scene.shape.Rectangle;
 public class GameObject2D extends Rectangle {
     private String name;
 
-    // movement and placement properties
-    private double width;
-    private double height;
-    private double X;
-    private double Y;
-    private double velocity = 0;
-
-
     public GameObject2D(String name, double width, double height, double x, double y) {
         this.name = name;
         setWidth(width);
@@ -25,17 +17,11 @@ public class GameObject2D extends Rectangle {
         return name;
     }
 
-    public double getVelocity() {
-        return velocity;
-    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setVelocity(double v) {
-        velocity = v;
-    }
 
 
 }

@@ -1,38 +1,43 @@
 package main.finalrpggame;
 
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import main.finalrpggame.model2d.Character2D;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class FightScene {
     public final static int NUM_OF_MONSTERS = 5;
-    private Scene scene;
+    private Canvas canvas;
     private GraphicsContext gc;
     private Character2D player;
 
     private List<Character2D> monsters;
+    private Character2D selectedMonster;
 
     private int curNumOfMonsters;
 
-    public FightScene(Scene scene, GraphicsContext gc) {
-        this.scene = scene;
+    private int loopTimer;
+
+    public FightScene(Canvas canvas, GraphicsContext gc) {
+        this.canvas = canvas;
         this.gc = gc;
         init();
         drawPlayer(gc);
     }
 
     private void init() {
+        Character playerInfo = new Character(100, 15, 30, 5);
+
         Image playerImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/main/finalrpggame/img/link_character.png")));
         player = new Character2D(playerImage, "Link",
                 playerImage.getWidth()*0.2, playerImage.getHeight()*0.2,
-                20, 100);
+                20, 100, playerInfo);
 
         Image goblinImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/main/finalrpggame/img/goblin_character.png")));
         monsters = new ArrayList <Character2D> ();
@@ -40,17 +45,26 @@ public class FightScene {
         curNumOfMonsters = NUM_OF_MONSTERS;
 
         for (int i = 0; i < NUM_OF_MONSTERS; i++) {
+            Character aiInfo = new Character(50, 5, 10, 8);
             monsters.add(new Character2D(goblinImage, "Goblin" + (i+1),
                     goblinImage.getWidth()*0.2, goblinImage.getHeight()*0.2,
-                    (int)(Math.random()*780), (int)(Math.random()*280)));
+                    (int)(Math.random()*780), (int)(Math.random()*280), aiInfo));
         }
+
+        loopTimer = 0;
     }
 
     public Character2D getPlayer(){
         return player;
     }
 
+    public Character2D getSelectedMonster() {
+        return selectedMonster;
+    }
+
     public void render(GraphicsContext gc, TextArea output) {
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
         Character2D monster = removeCollider();
 
         if (monster != null) {
@@ -69,8 +83,43 @@ public class FightScene {
     }
 
     private void drawMonsters(GraphicsContext gc) {
+        loopTimer++;
+        if (loopTimer == 100) {
+            loopTimer = 0;
+            monsters.forEach(monster -> monster.setDirection(Direction.getNewDirection()));
+        }
+
         for (int i = 0; i < curNumOfMonsters; i++) {
             Character2D monster = monsters.get(i);
+
+            switch(monster.getDirection()) {
+                case LEFT:
+                    monster.moveLeft();
+                    break;
+                case RIGHT:
+                    monster.moveRight();
+                    break;
+                case UP:
+                    monster.moveUp();
+                    break;
+                case DOWN:
+                    monster.moveDown();
+                    break;
+            }
+
+            if (monster.getY() < 0) {
+                monster.setDirection(Direction.DOWN);
+            }
+            else if (monster.getY() > canvas.getHeight()-50) {
+                monster.setDirection(Direction.UP);
+            }
+            else if (monster.getX() < 0) {
+                monster.setDirection(Direction.RIGHT);
+            }
+            else if (monster.getX() > canvas.getWidth()-50) {
+                monster.setDirection(Direction.LEFT);
+            }
+
             gc.drawImage(monster.getImage(), monster.getX(), monster.getY(), monster.getWidth(), monster.getHeight());
         }
     }
@@ -79,27 +128,31 @@ public class FightScene {
         int result = getCollider();
 
         if (result != -1) {
-            curNumOfMonsters--;
-            return monsters.remove(result);
+            selectedMonster = monsters.get(result);
+
+            if (selectedMonster.getInfo().getHp() <= 0) {
+                curNumOfMonsters--;
+                return monsters.remove(result);
+            }
         }
 
         return null;
     }
 
 
-    private int getCollider() {
+    public int getCollider() {
         for (int i = 0; i < curNumOfMonsters; i++) {
             Character2D monster = monsters.get(i);
-            boolean checkX = player.getX() >= monster.getX() && player.getX() <= monster.getX() + monster.getWidth();
-            boolean checkY = player.getY() <= monster.getY() && player.getY() >= monster.getY() - monster.getHeight();
+            boolean checkX = player.getX() >= monster.getX()-20 && player.getX() <= monster.getX() + monster.getWidth()+20;
+            boolean checkY = player.getY() <= monster.getY()+20 && player.getY() >= monster.getY() - monster.getHeight()-20;
 
             if (checkX && checkY) {
-                System.out.println(monster);
-                System.out.println(player);
                 return i;
             }
         }
 
         return -1;
     }
+
+
 }

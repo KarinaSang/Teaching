@@ -1,5 +1,6 @@
 package main.finalrpggame;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -21,8 +22,6 @@ import main.finalrpggame.model2d.Character2D;
 
 
 public class RPGGame extends Application {
-    private Character player;
-    private Character ai;
     private TextArea output;
 
     private Button attackButton;
@@ -37,8 +36,6 @@ public class RPGGame extends Application {
 
     private Parent createContent() {
         // initialize variables
-        player = new Character(100, 15, 20, 5);
-        ai = new Character(100, 10, 30, 8);
         output = new TextArea();
 
         attackButton = new Button("ATTACK");
@@ -67,14 +64,14 @@ public class RPGGame extends Application {
         blockButton.setFont(Font.font("Arial", 26));
         restartButton.setFont(Font.font("Arial", 26));
         output.setFont(Font.font("Arial", 26));
-        updateInfo();
 
         canvas = new Canvas(800, 300);
         gc = canvas.getGraphicsContext2D();
-        fightScene = new FightScene(scene, gc);
+        fightScene = new FightScene(canvas, gc);
 
         root.setOnKeyPressed(e -> {
             Character2D player2D = fightScene.getPlayer();
+
             if (e.getCode() == KeyCode.W) {
                 player2D.setY(player2D.getY()-10);
             }
@@ -88,7 +85,20 @@ public class RPGGame extends Application {
                 player2D.setX(player2D.getX()+10);
             }
 
-            gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+            // attacking monsters
+            if (fightScene.getCollider() != -1) {
+                if (e.getCode() == KeyCode.J) {
+                    makeMove(Action.ATTACK);
+                }
+                else if (e.getCode() == KeyCode.K) {
+                    makeMove(Action.CHARGE);
+                }
+                else if (e.getCode() == KeyCode.L) {
+                    makeMove(Action.BLOCK);
+                }
+            }
+
             fightScene.render(gc, output);
         });
 
@@ -100,6 +110,14 @@ public class RPGGame extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         scene = new Scene(createContent());
+        AnimationTimer gameLoop = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                fightScene.render(gc, output);
+            }
+        };
+        gameLoop.start();
+
         stage.setScene(scene);
         stage.show();
         stage.setTitle("RPG GAME");
@@ -121,14 +139,14 @@ public class RPGGame extends Application {
     private void restart() {
         enableButtons();
         output.clear();
-        player.setHp(100);
-        ai.setHp(100);
         updateInfo();
     }
 
 
     private void makeMove(Action userAction) {
         Action aiAction = makeAIMove();
+        Character ai = fightScene.getSelectedMonster().getInfo();
+        Character player = fightScene.getPlayer().getInfo();
 
         ActionResult result = userAction.checkAgainst(aiAction);
 
@@ -141,32 +159,26 @@ public class RPGGame extends Application {
             int dmg = player.calcDamage(userAction);
 
             ai.setHp(ai.getHp() - dmg);
-            output.appendText("Player deals " + dmg + " to AI \n");
+            output.appendText("Player deals " + dmg + " to Goblin \n");
             updateInfo();
-
-            // if ai loses all hp
-            if (ai.getHp() < 0) {
-                output.appendText("Game over. Player wins!");
-                disableButtons();
-            }
         } else { // LOSE
 
             int dmg = ai.calcDamage(aiAction);
 
             player.setHp(player.getHp() - dmg);
-            output.appendText("AI deals " + dmg + " to player \n");
+            output.appendText("Goblin deals " + dmg + " to player \n");
             updateInfo();
 
             // if player loses all hp
             if (player.getHp() < 0) {
-                output.appendText("Game over. AI wins!");
+                output.appendText("Game over. Monsters wins!");
                 disableButtons();
             }
         }
     }
 
     private void updateInfo() {
-        output.appendText("Player: " + player + ", AI: " + ai + "\n");
+        output.appendText("Player: " + fightScene.getPlayer().getInfo() + ", " +  fightScene.getSelectedMonster().getName() + ": " + fightScene.getSelectedMonster().getInfo() + "\n");
     }
 
     private Action makeAIMove() {
