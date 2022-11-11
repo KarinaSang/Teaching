@@ -1,6 +1,5 @@
 package main.finalrpggame;
 
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextArea;
@@ -64,6 +63,10 @@ public class FightScene {
 
     public void render(GraphicsContext gc, TextArea output) {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+        if (player.getInfo().getHp() <= 0) {
+            return;
+        }
 
         Character2D monster = removeCollider();
 

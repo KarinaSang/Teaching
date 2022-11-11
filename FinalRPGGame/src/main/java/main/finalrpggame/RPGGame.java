@@ -2,33 +2,33 @@ package main.finalrpggame;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import main.finalrpggame.model2d.Character2D;
 
+import java.util.Objects;
+
 
 public class RPGGame extends Application {
     private TextArea output;
-
-    private Button attackButton;
-    private Button chargeButton;
-    private Button blockButton;
     private Button restartButton;
-
+    private Label playerHPLabel;
+    private int numOfPotions;
+    private Label potionLabel;
     private Scene scene;
     private Canvas canvas;
     private GraphicsContext gc;
@@ -37,33 +37,37 @@ public class RPGGame extends Application {
     private Parent createContent() {
         // initialize variables
         output = new TextArea();
+        numOfPotions = 5;
 
-        attackButton = new Button("ATTACK");
-        chargeButton = new Button("CHARGE");
-        blockButton = new Button("BLOCK");
         restartButton = new Button("RESTART");
+        playerHPLabel = new Label("HP: 100");
+        potionLabel = new Label(String.valueOf(numOfPotions));
+
+        output.setPrefHeight(450);
+        restartButton.setFont(Font.font("Arial", 26));
+        playerHPLabel.setFont(Font.font("Arial", 26));
+        potionLabel.setFont(Font.font("Arial", 20));
+        output.setFont(Font.font("Arial", 26));
 
         VBox root = new VBox(10);
         root.setPrefSize(800, 600);
 
+        Image potionImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/main/finalrpggame/img/potion.png")));
+        ImageView potionImageView = new ImageView(potionImage);
+        potionImageView.setFitHeight(40);
+        potionImageView.setFitWidth(30);
+        StackPane potionPane = new StackPane();
+        potionPane.getChildren().add(potionImageView);
+        potionPane.getChildren().add(potionLabel);
+
+
         GridPane toolPane = new GridPane();
-        toolPane.add(attackButton, 0, 0);
-        toolPane.add(chargeButton, 1, 0);
-        toolPane.add(blockButton, 2, 0);
+        toolPane.add(playerHPLabel, 1, 0);
+        toolPane.add(potionPane, 2, 0);
         toolPane.add(restartButton, 3, 0);
         toolPane.setHgap(30);
 
-        attackButton.setOnAction(e -> makeMove(Action.ATTACK));
-        chargeButton.setOnAction(e -> makeMove(Action.CHARGE));
-        blockButton.setOnAction(e -> makeMove(Action.BLOCK));
         restartButton.setOnAction(e -> restart());
-
-        output.setPrefHeight(450);
-        attackButton.setFont(Font.font("Arial", 26));
-        chargeButton.setFont(Font.font("Arial", 26));
-        blockButton.setFont(Font.font("Arial", 26));
-        restartButton.setFont(Font.font("Arial", 26));
-        output.setFont(Font.font("Arial", 26));
 
         canvas = new Canvas(800, 300);
         gc = canvas.getGraphicsContext2D();
@@ -72,6 +76,11 @@ public class RPGGame extends Application {
         root.setOnKeyPressed(e -> {
             Character2D player2D = fightScene.getPlayer();
 
+            if (player2D.getInfo().getHp() <= 0) {
+                return;
+            }
+
+            // moving player
             if (e.getCode() == KeyCode.W) {
                 player2D.setY(player2D.getY()-10);
             }
@@ -99,6 +108,20 @@ public class RPGGame extends Application {
                 }
             }
 
+            // consuming potion
+            if (e.getCode() == KeyCode.P) {
+                int hp = player2D.getInfo().getHp();
+
+                if (hp != 100) {
+                    numOfPotions--;
+                    player2D.getInfo().setHp(Math.min(hp+10, 100));
+                    int newHp = player2D.getInfo().getHp();
+                    playerHPLabel.setText("HP: " + newHp);
+                    output.appendText("Player drinks one potion and restores hp to " + newHp + "\n");
+                    potionLabel.setText(String.valueOf(numOfPotions));
+                }
+            }
+
             fightScene.render(gc, output);
         });
 
@@ -109,37 +132,37 @@ public class RPGGame extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        scene = new Scene(createContent());
+        Pane mainMenu = new Pane();
+        Button startButton = new Button("START GAME");
+        startButton.setFont(Font.font("Arial", 26));
+        mainMenu.getChildren().add(startButton);
+        scene = new Scene(mainMenu, 800, 600);
+
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("RPG GAME");
+
         AnimationTimer gameLoop = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 fightScene.render(gc, output);
             }
         };
-        gameLoop.start();
 
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("RPG GAME");
+        startButton.setOnAction(e -> {
+            stage.getScene().setRoot(createContent());
+            gameLoop.start();
+        });
+
+
     }
-
-    private void disableButtons() {
-        attackButton.setDisable(true);
-        chargeButton.setDisable(true);
-        blockButton.setDisable(true);
-    }
-
-    private void enableButtons() {
-        attackButton.setDisable(false);
-        chargeButton.setDisable(false);
-        blockButton.setDisable(false);
-    }
-
 
     private void restart() {
-        enableButtons();
         output.clear();
-        updateInfo();
+        fightScene = new FightScene(canvas, gc);
+        playerHPLabel.setText("HP: 100");
+        numOfPotions = 5;
+        potionLabel.setText(String.valueOf(numOfPotions));
     }
 
 
@@ -172,9 +195,10 @@ public class RPGGame extends Application {
             // if player loses all hp
             if (player.getHp() < 0) {
                 output.appendText("Game over. Monsters wins!");
-                disableButtons();
             }
         }
+
+        playerHPLabel.setText("HP: " + player.getHp());
     }
 
     private void updateInfo() {
