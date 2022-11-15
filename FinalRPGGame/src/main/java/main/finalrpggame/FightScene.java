@@ -4,6 +4,10 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import main.finalrpggame.characters.Character;
+import main.finalrpggame.characters.Goblin;
+import main.finalrpggame.characters.Player;
+import main.finalrpggame.characters.Vampire;
 import main.finalrpggame.model2d.Character2D;
 
 import java.util.ArrayList;
@@ -20,8 +24,10 @@ public class FightScene {
     private Character2D selectedMonster;
 
     private int curNumOfMonsters;
+    private int numOfPotions;
 
     private int loopTimer;
+    private int curLevel;
 
     public FightScene(Canvas canvas, GraphicsContext gc) {
         this.canvas = canvas;
@@ -31,10 +37,12 @@ public class FightScene {
     }
 
     private void init() {
-        Character playerInfo = new Character(100, 15, 30, 5);
+        curLevel = 1;
+        numOfPotions = 5;
+        Character playerInfo = new Player(100, 15, 30, 5, "Link");
 
         Image playerImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/main/finalrpggame/img/link_character.png")));
-        player = new Character2D(playerImage, "Link",
+        player = new Character2D(playerImage,
                 playerImage.getWidth()*0.2, playerImage.getHeight()*0.2,
                 20, 100, playerInfo);
 
@@ -44,13 +52,45 @@ public class FightScene {
         curNumOfMonsters = NUM_OF_MONSTERS;
 
         for (int i = 0; i < NUM_OF_MONSTERS; i++) {
-            Character aiInfo = new Character(50, 5, 10, 8);
-            monsters.add(new Character2D(goblinImage, "Goblin" + (i+1),
+            Character aiInfo = new Goblin(50, 5, 10, 8, "Goblin" + (i+1));
+            monsters.add(new Character2D(goblinImage,
                     goblinImage.getWidth()*0.2, goblinImage.getHeight()*0.2,
                     (int)(Math.random()*780), (int)(Math.random()*280), aiInfo));
         }
 
         loopTimer = 0;
+    }
+
+    private void level2() {
+        numOfPotions = 5;
+        Character playerInfo = new Player(100, 15, 30, 5, "Link");
+
+        Image playerImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/main/finalrpggame/img/link_character.png")));
+        player = new Character2D(playerImage,
+                playerImage.getWidth()*0.2, playerImage.getHeight()*0.2,
+                20, 100, playerInfo);
+
+        Image vampireImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/main/finalrpggame/img/vampire.png")));
+        monsters = new ArrayList <Character2D> ();
+
+        curNumOfMonsters = NUM_OF_MONSTERS;
+
+        for (int i = 0; i < NUM_OF_MONSTERS; i++) {
+            Character aiInfo = new Vampire(50, 5, 10, 8, "Vampire" + (i+1));
+            monsters.add(new Character2D(vampireImage,
+                    vampireImage.getWidth()*0.2, vampireImage.getHeight()*0.2,
+                    (int)(Math.random()*780), (int)(Math.random()*280), aiInfo));
+        }
+
+        loopTimer = 0;
+    }
+
+    public int getNumberOfPotions() {
+        return numOfPotions;
+    }
+
+    public void consumePotion() {
+        numOfPotions--;
     }
 
     public Character2D getPlayer(){
@@ -74,6 +114,11 @@ public class FightScene {
             output.appendText(monster + " is killed!\n");
             if (curNumOfMonsters == 0) {
                 output.appendText("All monsters are killed! Good job!\n");
+                curLevel += 1;
+
+                if (curLevel == 2) {
+                    level2();
+                }
             }
         }
 

@@ -18,6 +18,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import main.finalrpggame.characters.Character;
 import main.finalrpggame.model2d.Character2D;
 
 import java.util.Objects;
@@ -27,7 +28,6 @@ public class RPGGame extends Application {
     private TextArea output;
     private Button restartButton;
     private Label playerHPLabel;
-    private int numOfPotions;
     private Label potionLabel;
     private Scene scene;
     private Canvas canvas;
@@ -37,11 +37,10 @@ public class RPGGame extends Application {
     private Parent createContent() {
         // initialize variables
         output = new TextArea();
-        numOfPotions = 5;
 
         restartButton = new Button("RESTART");
         playerHPLabel = new Label("HP: 100");
-        potionLabel = new Label(String.valueOf(numOfPotions));
+        potionLabel = new Label("5");
 
         output.setPrefHeight(450);
         restartButton.setFont(Font.font("Arial", 26));
@@ -112,13 +111,13 @@ public class RPGGame extends Application {
             if (e.getCode() == KeyCode.P) {
                 int hp = player2D.getInfo().getHp();
 
-                if (hp != 100) {
-                    numOfPotions--;
+                if (hp != 100 && fightScene.getNumberOfPotions() > 0) {
+                    fightScene.consumePotion();
                     player2D.getInfo().setHp(Math.min(hp+10, 100));
                     int newHp = player2D.getInfo().getHp();
                     playerHPLabel.setText("HP: " + newHp);
                     output.appendText("Player drinks one potion and restores hp to " + newHp + "\n");
-                    potionLabel.setText(String.valueOf(numOfPotions));
+                    potionLabel.setText(String.valueOf(fightScene.getNumberOfPotions()));
                 }
             }
 
@@ -161,8 +160,7 @@ public class RPGGame extends Application {
         output.clear();
         fightScene = new FightScene(canvas, gc);
         playerHPLabel.setText("HP: 100");
-        numOfPotions = 5;
-        potionLabel.setText(String.valueOf(numOfPotions));
+        potionLabel.setText("5");
     }
 
 
@@ -171,7 +169,15 @@ public class RPGGame extends Application {
         Character ai = fightScene.getSelectedMonster().getInfo();
         Character player = fightScene.getPlayer().getInfo();
 
-        ActionResult result = userAction.checkAgainst(aiAction);
+        ActionResult result = ActionResult.WIN;
+
+        // when AI uses an ability, player always wins the round
+        if (aiAction == Action.ABILITY) {
+            String abilityText = ai.castAbility();
+            output.appendText(abilityText);
+        } else {
+            result = userAction.checkAgainst(aiAction);
+        }
 
         if (result == ActionResult.DRAW) {
 
@@ -182,14 +188,14 @@ public class RPGGame extends Application {
             int dmg = player.calcDamage(userAction);
 
             ai.setHp(ai.getHp() - dmg);
-            output.appendText("Player deals " + dmg + " to Goblin \n");
+            output.appendText("Player deals " + dmg + " to " + ai.getName() + "\n");
             updateInfo();
         } else { // LOSE
 
             int dmg = ai.calcDamage(aiAction);
 
             player.setHp(player.getHp() - dmg);
-            output.appendText("Goblin deals " + dmg + " to player \n");
+            output.appendText(ai.getName()  + " deals " + dmg + " to player \n");
             updateInfo();
 
             // if player loses all hp
@@ -202,7 +208,8 @@ public class RPGGame extends Application {
     }
 
     private void updateInfo() {
-        output.appendText("Player: " + fightScene.getPlayer().getInfo() + ", " +  fightScene.getSelectedMonster().getName() + ": " + fightScene.getSelectedMonster().getInfo() + "\n");
+        Character monster = fightScene.getSelectedMonster().getInfo();
+        output.appendText("Player: " + fightScene.getPlayer().getInfo() + ", " +  monster.getName() + ": " + monster + "\n");
     }
 
     private Action makeAIMove() {
