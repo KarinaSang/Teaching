@@ -22,6 +22,7 @@ public class FightScene {
 
     private List<Character2D> monsters;
     private Character2D selectedMonster;
+    private Image arrow;
 
     private int curNumOfMonsters;
     private int numOfPotions;
@@ -57,6 +58,8 @@ public class FightScene {
                     goblinImage.getWidth()*0.2, goblinImage.getHeight()*0.2,
                     (int)(Math.random()*780), (int)(Math.random()*280), aiInfo));
         }
+
+        arrow = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/main/finalrpggame/img/arrow.png")));
 
         loopTimer = 0;
     }
@@ -108,22 +111,54 @@ public class FightScene {
             return;
         }
 
-        Character2D monster = removeCollider();
+        Character2D monster = removeCollider(player.getX(), player.getY());
 
         if (monster != null) {
             output.appendText(monster + " is killed!\n");
-            if (curNumOfMonsters == 0) {
-                output.appendText("All monsters are killed! Good job!\n");
-                curLevel += 1;
-
-                if (curLevel == 2) {
-                    level2();
-                }
-            }
         }
 
         drawPlayer(gc);
         drawMonsters(gc);
+
+        if (((Player)player.getInfo()).getArrow()) {
+            drawArrow(gc, output);
+        }
+
+        if (curNumOfMonsters == 0) {
+            output.appendText("All monsters are killed! Good job!\n");
+            curLevel += 1;
+
+            if (curLevel == 2) {
+                level2();
+            }
+        }
+    }
+
+    private void drawArrow(GraphicsContext gc, TextArea output) {
+        Player playerInfo = (Player) player.getInfo();
+        int offset = 8 * playerInfo.getArrowTimer();
+        playerInfo.increaseArrowTimer();
+
+        int monsterIndex = getCollider(player.getX()+offset, player.getY());
+        if (monsterIndex != -1) {
+            playerInfo.resetArrow();
+            Character monsterInfo = monsters.get(monsterIndex).getInfo();
+            monsterInfo.setHp(monsterInfo.getHp()-40);
+            output.appendText(monsterInfo.getName() + " got hit by an arrow and lost 40 HP!\n");
+
+            if (monsterInfo.getHp() <= 0) {
+                curNumOfMonsters--;
+                output.appendText("Good job, you killed " + monsterInfo.getName() + "\n");
+                monsters.remove(monsterIndex);
+            }
+        }
+        else if (player.getX()+offset >= canvas.getWidth()){ //out of bounds
+            output.appendText("Arrow missed :(");
+            playerInfo.resetArrow();
+        }
+        else {
+            gc.drawImage(arrow, player.getX()+offset, player.getY()+player.getHeight()/2, arrow.getWidth(), arrow.getHeight());
+        }
     }
 
     private void drawPlayer(GraphicsContext gc) {
@@ -172,8 +207,8 @@ public class FightScene {
         }
     }
 
-    public Character2D removeCollider() {
-        int result = getCollider();
+    public Character2D removeCollider(double x1, double y1) {
+        int result = getCollider(x1, y1);
 
         if (result != -1) {
             selectedMonster = monsters.get(result);
@@ -188,11 +223,11 @@ public class FightScene {
     }
 
 
-    public int getCollider() {
+    public int getCollider(double x1, double y1) {
         for (int i = 0; i < curNumOfMonsters; i++) {
             Character2D monster = monsters.get(i);
-            boolean checkX = player.getX() >= monster.getX()-20 && player.getX() <= monster.getX() + monster.getWidth()+20;
-            boolean checkY = player.getY() <= monster.getY()+20 && player.getY() >= monster.getY() - monster.getHeight()-20;
+            boolean checkX = x1 >= monster.getX()-20 && x1 <= monster.getX() + monster.getWidth()+20;
+            boolean checkY = y1 <= monster.getY()+10 && y1 >= monster.getY() - monster.getHeight()-10;
 
             if (checkX && checkY) {
                 return i;

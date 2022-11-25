@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import main.finalrpggame.characters.Character;
+import main.finalrpggame.characters.Player;
 import main.finalrpggame.model2d.Character2D;
 
 import java.util.Objects;
@@ -95,7 +96,7 @@ public class RPGGame extends Application {
 
 
             // attacking monsters
-            if (fightScene.getCollider() != -1) {
+            if (fightScene.getCollider(player2D.getX(), player2D.getY()) != -1) {
                 if (e.getCode() == KeyCode.J) {
                     makeMove(Action.ATTACK);
                 }
@@ -105,6 +106,11 @@ public class RPGGame extends Application {
                 else if (e.getCode() == KeyCode.L) {
                     makeMove(Action.BLOCK);
                 }
+            }
+
+            // casting ability
+            if (e.getCode() == KeyCode.ENTER && !((Player)player2D.getInfo()).getArrow()) {
+                makeMove(Action.ABILITY);
             }
 
             // consuming potion
@@ -166,18 +172,28 @@ public class RPGGame extends Application {
 
     private void makeMove(Action userAction) {
         Action aiAction = makeAIMove();
-        Character ai = fightScene.getSelectedMonster().getInfo();
         Character player = fightScene.getPlayer().getInfo();
 
-        ActionResult result = ActionResult.WIN;
+        if (userAction == Action.ABILITY) {
+            String abilityText = player.castAbility();
+            output.appendText(abilityText);
+
+            if (fightScene.getSelectedMonster() == null) {
+                return;
+            }
+        }
+
+        Character ai = fightScene.getSelectedMonster().getInfo();
+
 
         // when AI uses an ability, player always wins the round
         if (aiAction == Action.ABILITY) {
             String abilityText = ai.castAbility();
             output.appendText(abilityText);
-        } else {
-            result = userAction.checkAgainst(aiAction);
         }
+
+
+        ActionResult result = userAction.checkAgainst(aiAction);
 
         if (result == ActionResult.DRAW) {
 
