@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cac7f497-dced-4f8e-915f-852a716be9bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/hs_err_pid64129.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-03-Apr-2023-19.11.49.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-17.51.26.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-17.52.29.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-17.55.58.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-18.00.17.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-18.00.53.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-18.01.21.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-18.05.41.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-18.07.07.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/logs/FXGL-27-Mar-2023-18.09.04.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/src/main/java/BirdComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/src/main/java/EntityType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/src/main/java/FlappyBirdApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/src/main/java/FlappyBirdFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/src/main/java/TubeBuildComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/src/main/resources/assets/textures/bird.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/system/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FlappyBird/system/fxgl.bundle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-10-Apr-2023-19.00.46.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-10-Apr-2023-19.02.20.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-10-Apr-2023-19.03.51.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-17-Apr-2023-18.55.45.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-17-Apr-2023-19.00.03.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-17-Apr-2023-19.04.34.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-17-Apr-2023-19.06.02.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-17-Apr-2023-19.07.42.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-17-Apr-2023-19.08.08.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-17-Apr-2023-19.08.29.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EntityType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefenseApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TowerDefenseFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/data/TowerData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/TowerIcon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/TowerSelectionBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/levels/tmx/map1.tmx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/levels/tmx/tilesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/towers/tower1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/towers/tower2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/towers/tower3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/towers/tower4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/towers/tower5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/towers/tower6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/system/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/system/fxgl.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CCC_Junior/questions.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../CCC_Junior/questions.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FXGL/FXGLGames" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FXGL/~$Pong Game.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/main/rpggame/Action.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/main/rpggame/ActionResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/main/rpggame/Character.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/main/rpggame/FightScene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/main/rpggame/RPGGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/main/rpggame/model2d/Character2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/main/rpggame/model2d/GameObject2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RPGGame/src/main/resources/main/rpggame/img/goblin_character.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeachingBook.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../TeachingBook.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../~$TeachingBook.xlsx" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OFi0kGzSYpiHVdg1hzLQZl36RT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/karinasang/Sherry/Teaching/TowerDefense/src/main/resources/assets/towers",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/towers" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/levels/tmx" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/textures/towers" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets" />
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/levels/tmx" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TowerDefenseApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TowerDefenseApp" />
+      <module name="TowerDefense" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TowerDefenseApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cac7f497-dced-4f8e-915f-852a716be9bd" name="Changes" comment="" />
+      <created>1681162511259</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681162511259</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
