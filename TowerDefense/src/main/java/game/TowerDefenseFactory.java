@@ -13,6 +13,8 @@ import javafx.scene.shape.Rectangle;
 import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 
 public class TowerDefenseFactory implements EntityFactory {
+    @Spawns("Enemy")
+
     @Spawns("Tower")
     public Entity newTower(SpawnData data) {
         TowerData towerData = data.get("towerData");
@@ -51,8 +53,6 @@ public class TowerDefenseFactory implements EntityFactory {
 
         return cell;
     }
-
-    @Spawns("Enemy")
 
 
     @Spawns("waypoints")
