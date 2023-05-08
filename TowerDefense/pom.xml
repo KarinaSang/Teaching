@@ -45,7 +45,7 @@
                     <noHeaderFiles>true</noHeaderFiles>
                     <noManPages>true</noManPages>
                     <launcher>Start-game</launcher>
-                    <mainClass>TowerDefenseApp</mainClass>
+                    <mainClass>game.TowerDefenseApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
