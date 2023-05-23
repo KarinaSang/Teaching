@@ -1,2 +1,3 @@
-module $MODULE_NAME$ {
+open module game.main {
+    requires com.almasb.fxgl.all;
 }

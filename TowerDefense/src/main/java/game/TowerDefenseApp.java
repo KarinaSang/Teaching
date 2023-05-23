@@ -7,6 +7,7 @@ import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
 import game.data.TowerData;
+import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import game.ui.TowerSelectionBox;
@@ -41,6 +42,9 @@ public class TowerDefenseApp extends GameApplication {
         towerSelectionBox = new TowerSelectionBox(towerDataList);
 
         loadCurrentLevel();
+
+        // spawn a dummy enemy for testing
+        FXGL.spawn("Enemy", new Point2D(500, 500));
     }
 
     @Override
@@ -51,7 +55,7 @@ public class TowerDefenseApp extends GameApplication {
         towerSelectionBox.setVisible(false);
 
         // money text
-        var moneyText = getUIFactoryService().newText("Money: ", Color.WHITE, 32.0);
+        var moneyText = getUIFactoryService().newText("", Color.WHITE, 32.0);
         moneyText.textProperty().bind(getip("money").asString());
         moneyText.setTranslateX(50);
         moneyText.setTranslateY(45);
@@ -72,6 +76,8 @@ public class TowerDefenseApp extends GameApplication {
             return;
 
         towerSelectionBox.setVisible(true);
+//        var newCell = cell;
+//        newCell.translate(64, 64);
         towerSelectionBox.setCell(cell);
 
         towerSelectionBox.setTranslateX(cell.getX()+50);

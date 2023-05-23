@@ -3,7 +3,8 @@ package game.data;
 public record TowerData(
         String name,
         String imageName,
-        int cost
+        int cost,
+        int attack
 ) {
 }
 

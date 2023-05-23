@@ -1,5 +1,6 @@
 {
   "name": "Tower 2",
   "imageName": "towers/tower2.png",
-  "cost": 100
+  "cost": 100,
+  "attack": 20
 }

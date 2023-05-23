@@ -1,10 +1,13 @@
 package game;
 
 import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.dsl.components.AutoRotationComponent;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
+import game.components.BulletComponent;
+import game.components.TowerComponent;
 import game.data.TowerData;
 import javafx.beans.binding.Bindings;
 import javafx.scene.paint.Color;
@@ -14,6 +17,24 @@ import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 
 public class TowerDefenseFactory implements EntityFactory {
     @Spawns("Enemy")
+    public Entity newEnemy(SpawnData data) {
+        return FXGL.entityBuilder(data)
+                .type(EntityType.ENEMY)
+                .viewWithBBox("enemies/enemy2.png")
+                .build();
+    }
+
+    @Spawns("Bullet")
+    public Entity newBullet(SpawnData data) {
+        Entity tower = data.get("tower");
+        Entity target = data.get("target");
+
+        return FXGL.entityBuilder(data)
+                .type(EntityType.BULLET)
+                .viewWithBBox("bullets/bullet.png")
+                .with(new BulletComponent(tower, target))
+                .build();
+    }
 
     @Spawns("Tower")
     public Entity newTower(SpawnData data) {
@@ -23,14 +44,16 @@ public class TowerDefenseFactory implements EntityFactory {
                 .type(EntityType.TOWER)
                 .viewWithBBox(towerData.imageName())
                 .collidable()
-                //.with(new TowerComponent(towerData))
+                .with(new TowerComponent(towerData))
                 //.zIndex(Z_INDEX_TOWER)
                 .build();
     }
 
     @Spawns("towerBase")
     public Entity newTowerBase(SpawnData data) {
-        var rect = new Rectangle(64, 64, Color.GREEN);
+        var rect = new Rectangle(64, 64);
+//        var rect = new Rectangle(64, 64, 64, 64);
+        rect.setFill(Color.GREEN);
         rect.setOpacity(0.25);
 
         var cell = FXGL.entityBuilder(data)
