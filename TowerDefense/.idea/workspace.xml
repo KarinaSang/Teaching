@@ -5,81 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cac7f497-dced-4f8e-915f-852a716be9bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q2/SystemLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q3/Crossword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q3/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q3/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.06.38.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.07.02.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.09.00.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.09.39.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.09.59.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.10.49.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.11.04.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.11.43.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.22.07.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.27.38.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/components/BulletComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/bullets/bullet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/bullets/projectile1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/bullets/projectile2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q1/RandomLetterChooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q1/RandomLetterChooser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q1/RandomStringChooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q1/RandomStringChooser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q2/LogMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../APCS_Practice/src/main/java/org/example/cs2016/q2/LogMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-29-May-2023-19.15.53.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-29-May-2023-19.24.09.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/FXGL-29-May-2023-19.25.40.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FXGL/TowerDefenseGame.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../FXGL/TowerDefenseGame.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FlappyBird/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FlappyBird/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/logs/FXGL-16-May-2023-15.18.37.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/src/main/java/org/example/PlatformerGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/src/main/resources/assets/levels/blockPack_tilesheet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/src/main/resources/assets/textures/background/forest.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/src/main/resources/assets/textures/player copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/system/Readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PlatformerGame/system/fxgl.bundle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-01-May-2023-17.49.04.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-01-May-2023-17.49.23.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-01-May-2023-17.50.43.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-01-May-2023-17.52.02.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.07.45.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.23.47.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.39.20.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.40.04.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.40.18.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.41.08.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.56.45.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.56.58.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-18.57.21.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.12.54.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.13.23.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.13.56.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.14.11.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.14.46.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.15.38.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.15.49.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.16.40.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-08-May-2023-19.17.50.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/EntityType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/EntityType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/TowerDefenseApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/TowerDefenseApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/TowerDefenseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/TowerDefenseFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.06.38.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.07.02.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/FXGL-22-May-2023-19.09.00.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/components/BulletComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/components/BulletComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/components/TowerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/components/TowerComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/data/TowerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/data/TowerData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/towers/tower1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/towers/tower2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/towers/tower3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/towers/tower4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/towers/tower5.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/towers/tower5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/assets/towers/tower1.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assets/towers/tower1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/assets/towers/tower2.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assets/towers/tower2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/assets/towers/tower3.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assets/towers/tower3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/assets/towers/tower4.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assets/towers/tower4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/assets/towers/tower5.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/assets/towers/tower5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/EntityType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/EntityType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/TowerDefenseApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/TowerDefenseApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/TowerDefenseFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/TowerDefenseFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/data/TowerData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/data/TowerData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/components/BulletComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/components/BulletComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/components/TowerComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/components/TowerComponent.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +52,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/karinasang/Sherry/Teaching/TowerDefense/src/main/resources/assets/towers&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/karinasang/Sherry/Teaching/TowerDefense&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,

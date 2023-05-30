@@ -8,6 +8,7 @@ import com.almasb.fxgl.time.LocalTimer;
 import game.EntityType;
 import game.data.TowerData;
 import javafx.geometry.Point2D;
+import javafx.util.Duration;
 
 public class TowerComponent extends Component {
     private TowerData data;
@@ -23,15 +24,17 @@ public class TowerComponent extends Component {
 
     @Override
     public void onUpdate(double tpf) {
-        FXGL.getGameWorld().getClosestEntity(entity, e -> e.isType(EntityType.ENEMY))
-                .ifPresent(nearestEnemy -> {
-                    entity.rotateToVector(nearestEnemy.getPosition().subtract(entity.getPosition()));
+        if (shootTimer.elapsed(Duration.seconds(1.5))) {
+            FXGL.getGameWorld().getClosestEntity(entity, e -> e.isType(EntityType.ENEMY))
+                    .ifPresent(nearestEnemy -> {
+                        entity.rotateToVector(nearestEnemy.getPosition().subtract(entity.getPosition()));
 
-                    // because of sprite rotation
-                    entity.rotateBy(90);
-                    shoot(nearestEnemy);
-                    shootTimer.capture();
-                });
+                        // because of sprite rotation
+                        entity.rotateBy(90);
+                        shoot(nearestEnemy);
+                        shootTimer.capture();
+                    });
+        }
     }
 
     @Override

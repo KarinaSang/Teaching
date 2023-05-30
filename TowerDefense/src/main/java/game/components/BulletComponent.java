@@ -14,6 +14,11 @@ public class BulletComponent extends Component {
 
     @Override
     public void onUpdate(double tpf) {
+        if (entity.distanceBBox(target) < 200 * tpf) {
+            entity.removeFromWorld();
+            return;
+        }
+
         entity.translateTowards(target.getCenter(), 200 * tpf);
     }
 }
